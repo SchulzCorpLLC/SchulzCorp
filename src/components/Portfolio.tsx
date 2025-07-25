@@ -62,8 +62,8 @@ const Portfolio: React.FC = () => {
   return (
     // SECTION STYLING: Switched to a dark theme with a subtle background pattern for a high-tech feel.
     <section id="portfolio" className="py-24 sm:py-32 bg-black relative overflow-hidden">
-        {/* Subtle background grid pattern */}
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+        {/* UPDATED: Subtle background grid pattern without the fade-out mask */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
 
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">

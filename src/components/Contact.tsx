@@ -1,33 +1,47 @@
 import React, { useState } from 'react';
 
+// Defines the structure of the form data
 interface FormData {
   name: string;
   email: string;
-  businessType: string;
+  business_type: string; // Updated for better crawlability
   projectNeeds: string;
 }
 
+// Defines a type for the validation errors object
+type FormErrors = Partial<Record<keyof FormData, string>>;
+
 const Contact: React.FC = () => {
+  // State for form data, submission status, and errors
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    businessType: '',
+    business_type: '', // Updated for better crawlability
     projectNeeds: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [errors, setErrors] = useState<Partial<FormData>>({});
+  const [errors, setErrors] = useState<FormErrors>({});
 
+  // SEO-optimized list of business types in alphabetical order
   const businessTypes = [
-    'E-Commerce',
-    'Moving Company',
-    'SaaS Startup',
-    'Creative Studio',
-    'Other'
+    'Construction / Trades',
+    'E-commerce / Online Store',
+    'Education / Coaching / Online Courses',
+    'Financial Services / Insurance',
+    'Healthcare or Wellness Practice',
+    'Logistics / Transportation / Moving Companies',
+    'Nonprofit / Community Organization',
+    'Other / Not Listed (Please Describe)',
+    'Professional Services',
+    'Real Estate or Property Management',
+    'Restaurant / Food Services',
+    'Tech / SaaS Startup'
   ];
 
+  // Validates the form fields and sets errors if any
   const validateForm = (): boolean => {
-    const newErrors: Partial<FormData> = {};
+    const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
       newErrors.name = 'Name is required';
@@ -47,16 +61,17 @@ const Contact: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
+  // Handles changes in form inputs and clears associated errors
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     
-    // Clear error when user starts typing
     if (errors[name as keyof FormData]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
   };
 
+  // Handles form submission to Formspree
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -64,24 +79,41 @@ const Contact: React.FC = () => {
 
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 1000));
-    
-    setIsSubmitting(false);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', email: '', businessType: '', projectNeeds: '' });
-    }, 3000);
+    try {
+      const response = await fetch("https://formspree.io/f/mzzvrzld", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true); // Show success message
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', email: '', business_type: '', projectNeeds: '' });
+        }, 3000);
+      } else {
+        // Handle submission errors from Formspree
+        setErrors({ projectNeeds: "Submission failed. Please try again." });
+      }
+    } catch (error) {
+      // Handle network errors
+      setErrors({ projectNeeds: "A network error occurred. Please check your connection." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
+  // If the form is submitted successfully, show a confirmation message
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-20 bg-black">
-        {/* The container width is now set to max-w-screen-2xl for a consistent, wider layout. */}
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section id="contact" className="relative overflow-hidden py-20 bg-black">
+        {/* UPDATED: Grid background mask removed to prevent fade-out */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
+        <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 shadow-2xl border border-gray-700">
               <div className="text-green-400 mb-4">
@@ -102,14 +134,19 @@ const Contact: React.FC = () => {
     );
   }
 
+  // Render the high-converting contact form
   return (
-    <section id="contact" className="py-20 bg-black">
-      {/* The container width is now set to max-w-screen-2xl for a consistent, wider layout. */}
-      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative overflow-hidden py-20 bg-black">
+        {/* UPDATED: Grid background mask removed to prevent fade-out */}
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
+      <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Let's Build Something Exceptional
           </h2>
+          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
+            Tell me what you’re building — and I’ll show you how we can elevate it.
+          </p>
         </div>
 
         <div className="max-w-2xl mx-auto">
@@ -151,13 +188,11 @@ const Contact: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="businessType" className="block text-sm font-medium text-gray-300 mb-2">
-                Business Type
-              </label>
+              <label htmlFor="business_type" className="block text-sm font-medium text-gray-300 mb-2">We Build Profit-Driving Websites and SaaS for These Industries:</label>
               <select
-                id="businessType"
-                name="businessType"
-                value={formData.businessType}
+                id="business_type"
+                name="business_type"
+                value={formData.business_type}
                 onChange={handleInputChange}
                 className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-sm text-white focus:outline-none focus:border-gray-500 transition-colors duration-200"
               >
@@ -185,30 +220,35 @@ const Contact: React.FC = () => {
                 placeholder="Tell me about your project requirements..."
               />
               <div className="flex justify-between items-center mt-1">
-                {errors.projectNeeds && <p className="text-sm text-red-500">{errors.projectNeeds}</p>}
+                {errors.projectNeeds && <p className="mt-1 text-sm text-red-500">{errors.projectNeeds}</p>}
                 <p className="text-sm text-gray-500 ml-auto">
                   {formData.projectNeeds.length}/250
                 </p>
               </div>
             </div>
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 disabled:from-gray-900 disabled:to-gray-900 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 disabled:border-gray-800 shadow-2xl hover:shadow-3xl disabled:shadow-xl transform hover:-translate-y-1 disabled:translate-y-0 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? (
-                <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Submitting...
-                </span>
-              ) : (
-                'Submit'
-              )}
-            </button>
+            <div className="text-center">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-white text-black font-bold px-8 py-4 rounded-sm transition-all duration-300 border border-transparent hover:bg-gray-200 disabled:bg-gray-500 disabled:cursor-not-allowed shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 disabled:translate-y-0"
+              >
+                {isSubmitting ? (
+                  <span className="flex items-center justify-center">
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Submitting...
+                  </span>
+                ) : (
+                  'Submit Project Details'
+                )}
+              </button>
+              <p className="text-xs text-gray-500 mt-4">
+                No spam. Your information is 100% confidential and secured.
+              </p>
+            </div>
           </form>
         </div>
       </div>

@@ -11,8 +11,8 @@ const Hero: React.FC = () => {
   return (
     // The main section centers the new "monitor" or "phone" component.
     <section className="relative w-full overflow-hidden bg-black pt-28 pb-16 px-4 flex flex-col items-center justify-center">
-      {/* Subtle background grid pattern */}
-      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))]"></div>
+      {/* UPDATED: Subtle background grid pattern without the fade-out mask */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
 
       {/* --- DESKTOP VERSION (APPLE COMPUTER) --- */}
       {/* This entire block is hidden on screens smaller than 768px (md) */}
@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
       {/* --- MOBILE VERSION (APPLE PHONE/TABLET) --- */}
       {/* This entire block is only visible on screens smaller than 768px (md) */}
       <div className="block md:hidden w-full px-2">
-        {/* UPDATED: Made container responsive with w-full, max-w-sm, and aspect-ratio */}
+        {/* Made container responsive with w-full, max-w-sm, and aspect-ratio */}
         <div className="relative mx-auto border-gray-300 bg-gray-300 border-[10px] rounded-[2.5rem] w-full max-w-sm aspect-[2/3] shadow-xl">
             <div className="w-[140px] h-[18px] bg-gray-300 top-0 rounded-b-[1rem] left-1/2 -translate-x-1/2 absolute"></div>
             <div className="h-[46px] w-[3px] bg-gray-300 absolute -start-[13px] top-[124px] rounded-s-lg"></div>
