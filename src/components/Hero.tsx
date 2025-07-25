@@ -10,31 +10,29 @@ const Hero: React.FC = () => {
 
   return (
     <section className="relative h-screen overflow-hidden">
-      {/* Video Background */}
-      <div className="absolute inset-0 bg-black">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/40 to-transparent z-10"></div>
-        {/* Placeholder for video - in production, replace with actual video */}
-        <div className="w-full h-full bg-gradient-to-br from-gray-900 via-black to-gray-800 flex items-center justify-center">
-          <div className="text-center">
-            <div className="text-6xl md:text-8xl font-bold text-gray-600 mb-4 animate-pulse">
-              SC
-            </div>
-            <div className="text-sm text-gray-500 uppercase tracking-widest">
-              Digital Assembly
-            </div>
-          </div>
-        </div>
-      </div>
+      {/* Image Background */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url('/schulzcorp-hero.png')` }}
+      ></div>
+      {/* Dimming Overlay */}
+      <div className="absolute inset-0 bg-black/25"></div>
 
       {/* Content Overlay */}
-      <div className="relative z-20 h-full flex items-end">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
-          <div className="max-w-2xl">
-            <p className="text-sm text-gray-400 uppercase tracking-widest mb-4">
+      <div className="relative z-20 h-full flex items-end justify-center md:justify-start">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20 md:pb-24">
+          <div className="max-w-md text-center md:text-left">
+            <p 
+              className="text-sm text-gray-300 uppercase tracking-widest mb-4"
+              style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
+            >
               Your Business' Future Begins Here
             </p>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+              style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
+            >
               Future-Proof
               <br />
               <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
@@ -42,7 +40,10 @@ const Hero: React.FC = () => {
               </span>
             </h1>
             
-            <p className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed">
+            <p 
+              className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed"
+              style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
+            >
               Minimal. Luxurious. Built to Perform.
             </p>
             

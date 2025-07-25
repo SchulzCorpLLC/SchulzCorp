@@ -1,22 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
-      // Show/hide navbar based on scroll direction
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
       
-      // Change background on scroll
       setIsScrolled(currentScrollY > 50);
       setLastScrollY(currentScrollY);
     };
@@ -30,61 +30,97 @@ const Navbar: React.FC = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+    setIsMenuOpen(false); // Close menu after clicking a link
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+    setIsMenuOpen(false); // Also close mobile menu if open
+  };
+
+  const navLinks = [
+    { id: 'portfolio', name: 'Portfolio' },
+    { id: 'services', name: 'Services' },
+    { id: 'contact', name: 'Contact' },
+  ];
+
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isVisible ? 'translate-y-0' : '-translate-y-full'
-      } ${
-        isScrolled 
-          ? 'bg-black/90 backdrop-blur-md border-b border-gray-800' 
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          <div className="flex-shrink-0">
-            <h1 className="text-xl font-bold text-white tracking-tight">
-              SchulzCorp
-            </h1>
-          </div>
-          
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-8">
-              <button
-                onClick={() => scrollToSection('portfolio')}
-                className="text-gray-300 hover:text-white transition-colors duration-200"
+    <>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isVisible ? 'translate-y-0' : '-translate-y-full'
+        } ${
+          isScrolled || isMenuOpen
+            ? 'bg-black/90 backdrop-blur-md border-b border-gray-800' 
+            : 'bg-transparent'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-24">
+            <div className="flex-shrink-0">
+              {/* The logo is now a button that scrolls to the top */}
+              <button 
+                onClick={scrollToTop} 
+                className="text-2xl font-bold text-white tracking-tight"
+                aria-label="Scroll to top"
               >
-                Portfolio
+                SchulzCorp
               </button>
+            </div>
+            
+            {/* Desktop Menu */}
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-12">
+                {navLinks.map(link => (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    className="relative group text-lg text-gray-300 hover:text-white py-2 transition-colors duration-200"
+                  >
+                    <span>{link.name}</span>
+                    {/* Underline element with bg-green-500 */}
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Mobile menu button */}
+            <div className="md:hidden">
               <button
-                onClick={() => scrollToSection('services')}
-                className="text-gray-300 hover:text-white transition-colors duration-200"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-300 hover:text-white transition-colors duration-200 p-2"
+                aria-label="Toggle menu"
               >
-                Services
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                Contact
+                {isMenuOpen ? <X size={32} /> : <Menu size={32} />}
               </button>
             </div>
           </div>
+        </div>
+      </nav>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
+      {/* Mobile Menu Panel */}
+      <div
+        className={`fixed inset-0 z-40 bg-black/90 backdrop-blur-md pt-24 transition-transform duration-300 ease-in-out md:hidden ${
+          isMenuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col items-center justify-center h-full space-y-10">
+          {navLinks.map(link => (
             <button
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-300 hover:text-white transition-colors duration-200"
+              key={link.id}
+              onClick={() => scrollToSection(link.id)}
+              className="text-gray-300 hover:text-white text-3xl font-semibold transition-colors duration-200"
             >
-              Contact
+              {link.name}
             </button>
-          </div>
+          ))}
         </div>
       </div>
-    </nav>
+    </>
   );
 };
 
