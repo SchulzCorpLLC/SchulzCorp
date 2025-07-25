@@ -80,7 +80,8 @@ const Contact: React.FC = () => {
   if (isSubmitted) {
     return (
       <section id="contact" className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* The container width is now set to max-w-screen-2xl for a consistent, wider layout. */}
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
             <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 shadow-2xl border border-gray-700">
               <div className="text-green-400 mb-4">
@@ -103,7 +104,8 @@ const Contact: React.FC = () => {
 
   return (
     <section id="contact" className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* The container width is now set to max-w-screen-2xl for a consistent, wider layout. */}
+      <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Let's Build Something Exceptional

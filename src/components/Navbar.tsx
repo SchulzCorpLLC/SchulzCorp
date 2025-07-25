@@ -10,13 +10,13 @@ const Navbar: React.FC = () => {
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY > lastScrollY && currentScrollY > 100) {
         setIsVisible(false);
       } else {
         setIsVisible(true);
       }
-      
+
       setIsScrolled(currentScrollY > 50);
       setLastScrollY(currentScrollY);
     };
@@ -54,23 +54,24 @@ const Navbar: React.FC = () => {
           isVisible ? 'translate-y-0' : '-translate-y-full'
         } ${
           isScrolled || isMenuOpen
-            ? 'bg-black/90 backdrop-blur-md border-b border-gray-800' 
+            ? 'bg-black/90 backdrop-blur-md border-b border-gray-800'
             : 'bg-transparent'
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Re-introducing max-w-screen-2xl to find a middle ground between too narrow and full-width. */}
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             <div className="flex-shrink-0">
               {/* The logo is now a button that scrolls to the top */}
-              <button 
-                onClick={scrollToTop} 
+              <button
+                onClick={scrollToTop}
                 className="text-2xl font-bold text-white tracking-tight"
                 aria-label="Scroll to top"
               >
                 SchulzCorp
               </button>
             </div>
-            
+
             {/* Desktop Menu */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-12">
