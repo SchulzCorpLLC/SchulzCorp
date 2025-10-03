@@ -59,7 +59,7 @@ const Portfolio: React.FC = () => {
       title: "AE Firearms LLC",
       description: "Professional firearms dealer website featuring inventory showcase, compliance information, and streamlined customer inquiry system.",
       testimonial: "Professional, clean, and exactly what we needed to showcase our inventory and services to customers in the area.",
-      author: "AE Firearms LLC Team",
+      author: "Dennis, CEO of American Eagle Firearms LLC",
       link: "https://www.aefirearmsllc.com",
       image: "/ae-firearms-portfolio.webp",
       alt: "Professional Firearms Dealer Website – AE Firearms LLC",
