@@ -1,13 +1,11 @@
 import React from 'react';
 import { ExternalLink } from 'lucide-react';
 
-// Interface for Tech Stack Badges
 interface TechBadge {
   name: string;
-  icon?: React.ReactNode; // Optional icon for the badge
+  icon?: React.ReactNode;
 }
 
-// Interface for Portfolio Item including tech stack
 interface PortfolioItem {
   title: string;
   description: string;
@@ -23,8 +21,8 @@ const Portfolio: React.FC = () => {
   const projects: PortfolioItem[] = [
     {
       title: "Secure Florida Movers",
-      description: "High-tech, high-converting website with local SEO and ad strategy integration for a professional moving company.",
-      testimonial: "This website instantly elevated our brand. We saw a massive increase in calls and Google visibility. It’s fast, clean, and modern.",
+      description: "High-performance, high-converting website with local SEO and ad strategy integration for a professional moving company serving Southwest Florida.",
+      testimonial: "This website instantly elevated our brand. We saw a massive increase in calls and Google visibility. It's fast, clean, and modern.",
       author: "James Shelton, CEO of Secure Florida Movers",
       link: "https://www.securefloridamovers.com",
       image: "/sfm-portfolio.webp",
@@ -40,7 +38,7 @@ const Portfolio: React.FC = () => {
     },
     {
       title: "Sensuous-Living",
-      description: "Luxurious, feminine brand website with a fully integrated e-commerce system, blog, user login portal, and client dashboard features.",
+      description: "Luxurious, feminine brand website with fully integrated e-commerce system, blog, user login portal, and client dashboard features for online business management.",
       testimonial: "The site feels luxurious and powerful. Everything I dreamed of for my brand — functional, fast, and beautifully crafted.",
       author: "Trishiana, CEO of Sensuous-Living",
       link: "https://sensuous-living.vercel.app",
@@ -56,35 +54,47 @@ const Portfolio: React.FC = () => {
         { name: 'OAuth' },
         { name: 'E-Commerce' },
       ]
+    },
+    {
+      title: "AE Firearms LLC",
+      description: "Professional firearms dealer website featuring inventory showcase, compliance information, and streamlined customer inquiry system for Southwest Florida's premier firearms dealer.",
+      testimonial: "Professional, clean, and exactly what we needed to showcase our inventory and services to customers in the area.",
+      author: "AE Firearms LLC Team",
+      link: "https://www.aefirearmsllc.com",
+      image: "/ae-firearms-portfolio.webp",
+      alt: "Professional Firearms Dealer Website – AE Firearms LLC",
+      techStack: [
+        { name: 'React' },
+        { name: 'TypeScript' },
+        { name: 'Tailwind' },
+        { name: 'Responsive Design' },
+        { name: 'Contact Forms' },
+      ]
     }
   ];
 
   return (
-    // SECTION STYLING: Switched to a dark theme with a subtle background pattern for a high-tech feel.
     <section id="portfolio" className="py-24 sm:py-32 bg-black relative overflow-hidden">
-        {/* UPDATED: Subtle background grid pattern without the fade-out mask */}
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
 
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 mb-4">
-            Active Projects
+            Recent Website Projects
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            A showcase of high-performance websites and advanced client platforms I've developed for modern businesses.
+            A showcase of high-performance websites I've developed for businesses in Southwest Florida and beyond.
           </p>
         </div>
 
         <p className="text-base text-gray-500 text-center max-w-4xl mx-auto mb-16">
-          Each site below is built from scratch using high-performance frameworks, responsive design, and SEO best practices to deliver real business results.
+          Each website is built from scratch using modern frameworks, responsive design, and SEO best practices to deliver real business results.
         </p>
 
-        {/* PROJECT CARDS: Now uses a grid layout with glassmorphism effect on cards. */}
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
           {projects.map((project, index) => (
             <div
               key={index}
-              // CARD STYLING: Glassmorphism effect with a glowing border on hover.
               className="bg-gray-900/50 backdrop-blur-md rounded-2xl border border-gray-800 overflow-hidden group transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10"
             >
               <div className="relative overflow-hidden">
@@ -93,7 +103,6 @@ const Portfolio: React.FC = () => {
                   alt={project.alt}
                   className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                {/* Image overlay for the external link button */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
                   <div className="absolute top-4 right-4">
                     <a
@@ -108,8 +117,7 @@ const Portfolio: React.FC = () => {
                   </div>
                 </div>
               </div>
-              
-              {/* CARD CONTENT: Centered all content within the card for a clean, balanced look. */}
+
               <div className="p-6 md:p-8 text-center flex flex-col items-center">
                 <h3 className="text-2xl font-bold text-white mb-3">
                   {project.title}
@@ -117,8 +125,7 @@ const Portfolio: React.FC = () => {
                 <p className="text-gray-400 mb-6 leading-relaxed max-w-md">
                   {project.description}
                 </p>
-                
-                {/* TECH STACK BADGES: Centered using justify-center. */}
+
                 <div className="flex flex-wrap gap-2 mb-6 justify-center">
                     {project.techStack.map(tech => (
                         <span key={tech.name} className="bg-gray-800/80 text-blue-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-700">
@@ -127,9 +134,8 @@ const Portfolio: React.FC = () => {
                     ))}
                 </div>
 
-                {/* TESTIMONIAL: Switched to a top border to better suit the centered layout. */}
                 <blockquote className="border-t-2 border-blue-500/30 pt-4 italic text-gray-300 my-5 max-w-md">
-                  “{project.testimonial}”
+                  "{project.testimonial}"
                 </blockquote>
                 <cite className="text-sm text-gray-500 not-italic">
                   — {project.author}

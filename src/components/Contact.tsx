@@ -1,29 +1,27 @@
 import React, { useState } from 'react';
 
-// Defines the structure of the form data
 interface FormData {
   name: string;
   email: string;
-  business_type: string; // Updated for better crawlability
+  phone: string;
+  business_type: string;
   projectNeeds: string;
 }
 
-// Defines a type for the validation errors object
 type FormErrors = Partial<Record<keyof FormData, string>>;
 
 const Contact: React.FC = () => {
-  // State for form data, submission status, and errors
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
-    business_type: '', // Updated for better crawlability
+    phone: '',
+    business_type: '',
     projectNeeds: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
 
-  // SEO-optimized list of business types in alphabetical order
   const businessTypes = [
     'Construction / Trades',
     'E-commerce / Online Store',
@@ -39,7 +37,6 @@ const Contact: React.FC = () => {
     'Tech / SaaS Startup'
   ];
 
-  // Validates the form fields and sets errors if any
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
@@ -53,6 +50,12 @@ const Contact: React.FC = () => {
       newErrors.email = 'Please enter a valid email address';
     }
 
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    } else if (!/^[\d\s\-\(\)\+]+$/.test(formData.phone)) {
+      newErrors.phone = 'Please enter a valid phone number';
+    }
+
     if (formData.projectNeeds.length > 250) {
       newErrors.projectNeeds = 'Project needs must be 250 characters or less';
     }
@@ -61,24 +64,22 @@ const Contact: React.FC = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Handles changes in form inputs and clears associated errors
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
-    
+
     if (errors[name as keyof FormData]) {
       setErrors(prev => ({ ...prev, [name]: undefined }));
     }
   };
 
-  // Handles form submission to Formspree
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-    
+
     try {
       const response = await fetch("https://formspree.io/f/mzzvrzld", {
         method: 'POST',
@@ -89,29 +90,24 @@ const Contact: React.FC = () => {
       });
 
       if (response.ok) {
-        setIsSubmitted(true); // Show success message
-        // Reset form after 3 seconds
+        setIsSubmitted(true);
         setTimeout(() => {
           setIsSubmitted(false);
-          setFormData({ name: '', email: '', business_type: '', projectNeeds: '' });
+          setFormData({ name: '', email: '', phone: '', business_type: '', projectNeeds: '' });
         }, 3000);
       } else {
-        // Handle submission errors from Formspree
         setErrors({ projectNeeds: "Submission failed. Please try again." });
       }
     } catch (error) {
-      // Handle network errors
       setErrors({ projectNeeds: "A network error occurred. Please check your connection." });
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  // If the form is submitted successfully, show a confirmation message
   if (isSubmitted) {
     return (
       <section id="contact" className="relative overflow-hidden py-20 bg-black">
-        {/* UPDATED: Grid background mask removed to prevent fade-out */}
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
         <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
@@ -125,7 +121,7 @@ const Contact: React.FC = () => {
                 Message Sent Successfully!
               </h3>
               <p className="text-gray-400">
-                Thank you for reaching out. I'll get back to you within 24 hours.
+                Thank you for reaching out. I'll get back to you within 24 hours with your free quote.
               </p>
             </div>
           </div>
@@ -134,18 +130,16 @@ const Contact: React.FC = () => {
     );
   }
 
-  // Render the high-converting contact form
   return (
     <section id="contact" className="relative overflow-hidden py-20 bg-black">
-        {/* UPDATED: Grid background mask removed to prevent fade-out */}
         <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
       <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Let's Build Something Exceptional
+            Get Your Free Website Quote Today
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Tell me what you’re building — and I’ll show you how we can elevate it.
+            Tell me about your business and I'll provide a custom quote within 24 hours. Serving Estero, Naples, and all of Southwest Florida.
           </p>
         </div>
 
@@ -188,7 +182,25 @@ const Contact: React.FC = () => {
             </div>
 
             <div>
-              <label htmlFor="business_type" className="block text-sm font-medium text-gray-300 mb-2">We Build Profit-Driving Websites and SaaS for These Industries:</label>
+              <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                Phone Number *
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className={`w-full px-4 py-3 bg-gray-900 border ${
+                  errors.phone ? 'border-red-500' : 'border-gray-700'
+                } rounded-sm text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors duration-200`}
+                placeholder="(239) 555-1234"
+              />
+              {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
+            </div>
+
+            <div>
+              <label htmlFor="business_type" className="block text-sm font-medium text-gray-300 mb-2">Business Type</label>
               <select
                 id="business_type"
                 name="business_type"
@@ -239,10 +251,10 @@ const Contact: React.FC = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                     </svg>
-                    Submitting...
+                    Sending...
                   </span>
                 ) : (
-                  'Submit Project Details'
+                  'Get My Free Quote'
                 )}
               </button>
               <p className="text-xs text-gray-500 mt-4">

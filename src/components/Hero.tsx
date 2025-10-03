@@ -39,17 +39,17 @@ const Hero: React.FC = () => {
                   className="text-sm text-gray-300 uppercase tracking-widest mb-4"
                   style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
                 >
-                  Your Business' Future Begins Here
+                  Estero & Naples, FL Website Design
                 </p>
 
                 <h1
                   className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
                   style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
                 >
-                  Future-Proof
+                  Affordable, High-Converting
                   <br />
                   <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                    Digital Solutions
+                    Websites for Small Businesses
                   </span>
                 </h1>
 
@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
                   className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed"
                   style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
                 >
-                  Minimal. Luxurious. Built to Perform.
+                  Professional websites built in 1-2 weeks. Local support in Southwest Florida.
                 </p>
 
                 <button
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
                   className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
                 >
                   <span className="flex items-center justify-center md:justify-start">
-                    Tell Me About Your Project
+                    Get Your Free Quote
                     <svg
                       className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
                       fill="none"
@@ -108,21 +108,21 @@ const Hero: React.FC = () => {
                 <div className="relative z-20 h-full flex flex-col items-center justify-end text-center p-6">
                   <div className="w-full">
                     <p className="text-xs text-gray-300 uppercase tracking-widest mb-2" style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}>
-                      Your Business' Future Begins Here
+                      Estero & Naples, FL Website Design
                     </p>
                     <h1 className="text-3xl font-bold text-white mb-4 leading-tight" style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}>
-                      Future-Proof
+                      Affordable, High-Converting
                       <br />
                       <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                        Digital Solutions
+                        Websites for Small Businesses
                       </span>
                     </h1>
                     <p className="text-base text-gray-300 mb-6 leading-relaxed" style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}>
-                      Minimal. Luxurious. Built to Perform.
+                      Professional websites built in 1-2 weeks. Local support in Southwest Florida.
                     </p>
                     <button onClick={scrollToContact} className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-6 py-3 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-xl transform hover:-translate-y-1">
                       <span className="flex items-center justify-center">
-                        Tell Me About Your Project
+                        Get Your Free Quote
                         <svg className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                         </svg>
