@@ -57,7 +57,7 @@ const Portfolio: React.FC = () => {
     },
     {
       title: "AE Firearms LLC",
-      description: "Professional firearms dealer website featuring inventory showcase, compliance information, and streamlined customer inquiry system for Southwest Florida's premier firearms dealer.",
+      description: "Professional firearms dealer website featuring inventory showcase, compliance information, and streamlined customer inquiry system.",
       testimonial: "Professional, clean, and exactly what we needed to showcase our inventory and services to customers in the area.",
       author: "AE Firearms LLC Team",
       link: "https://www.aefirearmsllc.com",
