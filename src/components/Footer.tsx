@@ -1,7 +1,15 @@
 import React from 'react';
-import { Mail } from 'lucide-react';
+import { Mail, Cookie } from 'lucide-react';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  onShowPrivacyPolicy?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ onShowPrivacyPolicy }) => {
+  const handleCookieSettings = () => {
+    localStorage.removeItem('cookieConsent');
+    window.location.reload();
+  };
   return (
     <footer className="bg-gray-900 border-t border-gray-800">
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -9,6 +17,21 @@ const Footer: React.FC = () => {
           <div className="text-gray-400 text-sm text-center md:text-left">
             <p>© 2025 SchulzCorp. All rights reserved.</p>
             <p className="mt-1">Website Design in Estero, FL | Serving Naples & Southwest Florida</p>
+            <div className="flex items-center justify-center md:justify-start gap-4 mt-2">
+              <button
+                onClick={onShowPrivacyPolicy}
+                className="text-gray-500 hover:text-white transition-colors duration-200 text-xs"
+              >
+                Privacy Policy
+              </button>
+              <button
+                onClick={handleCookieSettings}
+                className="text-gray-500 hover:text-white transition-colors duration-200 text-xs flex items-center gap-1"
+              >
+                <Cookie className="w-3 h-3" />
+                Cookie Settings
+              </button>
+            </div>
           </div>
           
           <div className="flex items-center space-x-6">
