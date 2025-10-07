@@ -8,6 +8,13 @@ const Hero: React.FC = () => {
     }
   };
 
+  const scrollToPortfolio = () => {
+    const element = document.getElementById('portfolio');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     // The main section centers the new "monitor" or "phone" component.
     <section className="relative w-full overflow-hidden bg-black pt-28 pb-16 px-4 flex flex-col items-center justify-center">
@@ -47,28 +54,92 @@ const Hero: React.FC = () => {
                 </h1>
 
                 <p
-                  className="text-lg md:text-xl text-gray-300 mb-8 leading-relaxed"
+                  className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed"
                   style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
                 >
                   Professional Websites Built in 1–2 weeks. Affordable, Optimized for Results, and Backed Locally.
                 </p>
 
-                <button
-                  onClick={scrollToContact}
-                  className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
-                >
-                  <span className="flex items-center justify-center md:justify-start">
-                    Get Your Free Quote
-                    <svg
-                      className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                {/* Trust Boosters */}
+                <div className="mb-8 flex flex-wrap items-center gap-4 text-sm md:text-base">
+                  {/* 5-Star Rating */}
+                  <div className="flex items-center gap-1.5">
+                    <div className="flex text-yellow-400">
+                      <span>⭐</span>
+                      <span>⭐</span>
+                      <span>⭐</span>
+                      <span>⭐</span>
+                      <span>⭐</span>
+                    </div>
+                    <span
+                      className="text-gray-200 font-medium"
+                      style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </button>
+                      Rated
+                    </span>
+                  </div>
+
+                  {/* Separator */}
+                  <span className="text-gray-500">•</span>
+
+                  {/* Local Estero Team */}
+                  <div
+                    className="text-gray-200 font-medium"
+                    style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
+                  >
+                    Local Estero Team
+                  </div>
+
+                  {/* Separator */}
+                  <span className="text-gray-500">•</span>
+
+                  {/* Fast Turnaround Guarantee */}
+                  <div
+                    className="text-gray-200 font-medium"
+                    style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
+                  >
+                    Fast Turnaround Guarantee
+                  </div>
+                </div>
+
+                {/* CTA Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4">
+                  {/* Primary CTA */}
+                  <button
+                    onClick={scrollToContact}
+                    className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
+                  >
+                    <span className="flex items-center justify-center md:justify-start">
+                      Get Your Free Quote
+                      <svg
+                        className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </button>
+
+                  {/* Secondary CTA */}
+                  <button
+                    onClick={scrollToPortfolio}
+                    className="group bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-500 hover:border-gray-400 shadow-lg hover:shadow-xl"
+                  >
+                    <span className="flex items-center justify-center md:justify-start">
+                      View Recent Projects
+                      <svg
+                        className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -110,17 +181,75 @@ const Hero: React.FC = () => {
                         for Southwest Florida Businesses
                       </span>
                     </h1>
-                    <p className="text-base text-gray-300 mb-6 leading-relaxed" style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}>
+                    <p className="text-base text-gray-300 mb-4 leading-relaxed" style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}>
                       Professional websites built in 1-2 weeks. Local support in Southwest Florida.
                     </p>
-                    <button onClick={scrollToContact} className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-6 py-3 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-xl transform hover:-translate-y-1">
-                      <span className="flex items-center justify-center">
-                        Get Your Free Quote
-                        <svg className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                      </span>
-                    </button>
+
+                    {/* Trust Boosters - Mobile */}
+                    <div className="mb-6 flex flex-col items-center gap-2 text-xs">
+                      {/* 5-Star Rating */}
+                      <div className="flex items-center gap-1.5">
+                        <div className="flex text-yellow-400 text-sm">
+                          <span>⭐</span>
+                          <span>⭐</span>
+                          <span>⭐</span>
+                          <span>⭐</span>
+                          <span>⭐</span>
+                        </div>
+                        <span
+                          className="text-gray-200 font-medium"
+                          style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
+                        >
+                          Rated
+                        </span>
+                      </div>
+
+                      {/* Local Team and Guarantee */}
+                      <div className="flex items-center gap-2">
+                        <span
+                          className="text-gray-200 font-medium"
+                          style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
+                        >
+                          Local Estero Team
+                        </span>
+                        <span className="text-gray-500">•</span>
+                        <span
+                          className="text-gray-200 font-medium"
+                          style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
+                        >
+                          Fast Turnaround
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* CTA Buttons - Mobile Stacked */}
+                    <div className="flex flex-col gap-3">
+                      {/* Primary CTA */}
+                      <button 
+                        onClick={scrollToContact} 
+                        className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-6 py-3 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-xl transform hover:-translate-y-1"
+                      >
+                        <span className="flex items-center justify-center">
+                          Get Your Free Quote
+                          <svg className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </span>
+                      </button>
+
+                      {/* Secondary CTA */}
+                      <button
+                        onClick={scrollToPortfolio}
+                        className="group bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-sm transition-all duration-300 border border-gray-500 hover:border-gray-400 shadow-lg hover:shadow-xl"
+                      >
+                        <span className="flex items-center justify-center">
+                          View Recent Projects
+                          <svg className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                          </svg>
+                        </span>
+                      </button>
+                    </div>
                   </div>
                 </div>
             </div>
