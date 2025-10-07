@@ -143,43 +143,6 @@ const Hero: React.FC = () => {
                       Professional websites built in 1-2 weeks. Local support in Southwest Florida.
                     </p>
 
-                    {/* Trust Boosters - Mobile */}
-                    <div className="mb-6 flex flex-col items-center gap-2 text-xs">
-                      {/* 5-Star Rating */}
-                      <div className="flex items-center gap-1.5">
-                        <div className="flex text-yellow-400 text-sm">
-                          <span>⭐</span>
-                          <span>⭐</span>
-                          <span>⭐</span>
-                          <span>⭐</span>
-                          <span>⭐</span>
-                        </div>
-                        <span
-                          className="text-gray-200 font-medium"
-                          style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
-                        >
-                          Rated
-                        </span>
-                      </div>
-
-                      {/* Local Team and Guarantee */}
-                      <div className="flex items-center gap-2">
-                        <span
-                          className="text-gray-200 font-medium"
-                          style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
-                        >
-                          Local Estero Team
-                        </span>
-                        <span className="text-gray-500">•</span>
-                        <span
-                          className="text-gray-200 font-medium"
-                          style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
-                        >
-                          Fast Turnaround
-                        </span>
-                      </div>
-                    </div>
-
                     {/* CTA Buttons - Mobile Stacked */}
                     <div className="flex flex-col gap-3">
                       {/* Primary CTA */}
