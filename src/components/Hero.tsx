@@ -35,13 +35,6 @@ const Hero: React.FC = () => {
             {/* Content Overlay */}
             <div className="relative z-20 h-full flex flex-col items-center justify-end text-center md:items-start md:text-left p-8 md:p-12 lg:p-16">
               <div className="w-full max-w-md">
-                <p
-                  className="text-sm text-gray-300 uppercase tracking-widest mb-4"
-                  style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
-                >
-                  Estero & Naples, FL Website Design
-                </p>
-
                 <h1
                   className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
                   style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
