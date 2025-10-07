@@ -60,48 +60,6 @@ const Hero: React.FC = () => {
                   Professional Websites Built in 1–2 weeks. Affordable, Optimized for Results, and Backed Locally.
                 </p>
 
-                {/* Trust Boosters */}
-                <div className="mb-8 flex flex-wrap items-center gap-4 text-sm md:text-base">
-                  {/* 5-Star Rating */}
-                  <div className="flex items-center gap-1.5">
-                    <div className="flex text-yellow-400">
-                      <span>⭐</span>
-                      <span>⭐</span>
-                      <span>⭐</span>
-                      <span>⭐</span>
-                      <span>⭐</span>
-                    </div>
-                    <span
-                      className="text-gray-200 font-medium"
-                      style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
-                    >
-                      Rated
-                    </span>
-                  </div>
-
-                  {/* Separator */}
-                  <span className="text-gray-500">•</span>
-
-                  {/* Local Estero Team */}
-                  <div
-                    className="text-gray-200 font-medium"
-                    style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
-                  >
-                    Local Estero Team
-                  </div>
-
-                  {/* Separator */}
-                  <span className="text-gray-500">•</span>
-
-                  {/* Fast Turnaround Guarantee */}
-                  <div
-                    className="text-gray-200 font-medium"
-                    style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
-                  >
-                    Fast Turnaround Guarantee
-                  </div>
-                </div>
-
                 {/* CTA Buttons */}
                 <div className="flex flex-col sm:flex-row gap-4">
                   {/* Primary CTA */}
