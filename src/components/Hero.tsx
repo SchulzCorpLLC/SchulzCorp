@@ -111,10 +111,10 @@ const Hero: React.FC = () => {
                       Estero & Naples, FL Website Design
                     </p>
                     <h1 className="text-3xl font-bold text-white mb-4 leading-tight" style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}>
-                      Affordable, High-Converting
+                      High-Converting Websites
                       <br />
                       <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                        Websites for Small Businesses
+                        for Southwest Florida Businesses
                       </span>
                     </h1>
                     <p className="text-base text-gray-300 mb-6 leading-relaxed" style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}>
