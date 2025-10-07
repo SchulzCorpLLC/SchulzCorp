@@ -27,7 +27,7 @@ const Hero: React.FC = () => {
             
             {/* The Hero Image for Desktop */}
             <img
-              src="/schulzcorp-hero.png"
+              src="/schulzcorp-hero.webp"
               alt="Futuristic business technology background"
               className="absolute inset-0 w-full h-full object-cover z-0"
             />
