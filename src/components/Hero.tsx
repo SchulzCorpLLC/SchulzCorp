@@ -49,7 +49,7 @@ const Hero: React.FC = () => {
                   High-Converting Websites
                   <br />
                   <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                    for Southwest Florida
+                    for Southwest Florida Businesses
                   </span>
                 </h1>
 
