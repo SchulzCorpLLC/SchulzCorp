@@ -60,7 +60,7 @@ const Portfolio: React.FC = () => {
       description: "Professional firearms dealer website featuring inventory showcase, compliance information, and streamlined customer inquiry system.",
       testimonial: "Professional, clean, and exactly what we needed to showcase our inventory and services to customers in the area.",
       author: "Dennis, CEO of American Eagle Firearms LLC",
-      link: "https://www.aefirearmsllc.com",
+      link: "https://ae-firearms-dt.vercel.app/",
       image: "/ae-firearms-portfolio.webp",
       alt: "Professional Firearms Dealer Website – AE Firearms LLC",
       techStack: [
