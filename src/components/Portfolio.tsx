@@ -38,7 +38,7 @@ const Portfolio: React.FC = () => {
     },
     {
       title: "Estero Performance",
-      description: "Hybrid fitness coaching in Estero, FL with science-backed training, nutrition, and corrective exercise for seamless online and in-person programs.",
+      description: "Hybrid fitness coaching in Estero, FL with science backed training, nutrition, and corrective exercise for seamless online and in-person programs.",
       testimonial: "Precise programming, real accountability, and measurable results. Brandon makes the process simple and powerful.",
       author: "Brandon Schulz, Founder — Estero Performance",
       link: "https://esteroperformance.com",
