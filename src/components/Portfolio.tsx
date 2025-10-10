@@ -39,7 +39,7 @@ const Portfolio: React.FC = () => {
     {
       title: "Estero Performance",
       description: "Hybrid local + online performance coaching based in Estero, FL — premium, science-backed training, personalized nutrition, corrective exercise, and a seamless client dashboard for program delivery, booking, and progress tracking. Founder Brandon Schulz is pursuing NASM CPT, CNC, and CES credentials and is CPR/AED certified. Accepts in-person clients across Southwest Florida and remote clients worldwide.",
-      testimonial: "Estero Performance changed how I train — precise programming, real accountability, and measurable results. Brandon makes the process simple and powerful.",
+      testimonial: "Precise programming, real accountability, and measurable results. Brandon makes the process simple and powerful.",
       author: "Brandon Schulz, Founder — Estero Performance",
       link: "https://esteroperformance.com",
       image: "/ep-hero.webp",
