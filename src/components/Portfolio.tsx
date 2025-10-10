@@ -42,7 +42,7 @@ const Portfolio: React.FC = () => {
       testimonial: "Estero Performance changed how I train — precise programming, real accountability, and measurable results. Brandon makes the process simple and powerful.",
       author: "Brandon Schulz, Founder — Estero Performance",
       link: "https://esteroperformance.com",
-      image: "/estero-performance-hero.webp",
+      image: "/ep-hero.webp",
       alt: "Hybrid Performance Coaching — Estero Performance Founder Coaching a Client",
       techStack: [
         { name: 'React' },
