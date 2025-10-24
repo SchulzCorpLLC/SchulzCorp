@@ -61,7 +61,7 @@ const Services: React.FC = () => {
     {
       name: "Premium Growth Site",
       price: "$1,500",
-      description: "Complete solution for growing businesses",
+      description: "Complete digital system for businesses ready to scale and automate.",
       features: [
         "Custom design + advanced SEO",
         "Up to 10 pages",
