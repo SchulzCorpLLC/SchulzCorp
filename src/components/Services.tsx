@@ -53,7 +53,7 @@ const Services: React.FC = () => {
         "Professional business email setup (you@yourdomain.com)",
         "Google Analytics setup for tracking visitors",
         "Mobile responsive",
-        "2 week turnaround",
+        "2-week delivery",
         "Google Analytics setup"
       ],
       popular: true
