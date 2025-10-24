@@ -39,7 +39,7 @@ const Services: React.FC = () => {
         "Click-to-call + contact form setup",
         "Mobile & tablet responsive",
         "Fast 1-week turnaround",
-        "Basic SEO setup"
+        "Basic Google SEO setup (title tags + meta setup)"
       ]
     },
     {
