@@ -12,7 +12,7 @@ const About: React.FC = () => {
     {
       icon: <Clock className="w-8 h-8" />,
       title: "Quick Turnaround",
-      description: "1-2 weeks from start to launch"
+      description: "1-week turnaround available"
     },
     {
       icon: <DollarSign className="w-8 h-8" />,
