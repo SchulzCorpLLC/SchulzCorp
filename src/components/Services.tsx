@@ -72,7 +72,7 @@ const Services: React.FC = () => {
         "Contact form integration",
         "Mobile responsive",
         "Google Analytics & Search Console",
-        "1 month post-launch support",
+        "Post-launch 1-month support & updates",
         "2 week turnaround"
       ]
     }
