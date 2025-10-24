@@ -47,7 +47,7 @@ const Services: React.FC = () => {
       price: "$1,000",
       description: "Best for growing local businesses who want more leads and trust online.",
       features: [
-        "Includes everything in Starter, plus:",
+        "Includes everything in Starter",
         "Custom design built around your brand",
         "Up to 7 pages",
         "Full SEO optimization for local visibility",
