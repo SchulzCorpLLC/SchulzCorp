@@ -64,7 +64,7 @@ const Services: React.FC = () => {
       price: "$1,500",
       description: "Complete digital system for businesses ready to scale and automate.",
       features: [
-        "Includes everything in Business, plus:",
+        "Includes everything in Business",
         "Custom design + advanced SEO",
         "Up to 10 pages",
         "Email marketing integration",
