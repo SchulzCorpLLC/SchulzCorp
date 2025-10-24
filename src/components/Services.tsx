@@ -67,7 +67,7 @@ const Services: React.FC = () => {
         "Includes everything in Business",
         "Advanced SEO + Google Search Console setup",
         "Up to 10 pages",
-        "Email marketing integration",
+        "Email marketing integration (Mailchimp or similar)",
         "Business email setup",
         "Contact form integration",
         "Mobile responsive",
