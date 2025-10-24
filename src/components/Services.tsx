@@ -168,7 +168,7 @@ const Services: React.FC = () => {
                       : 'bg-gray-800 hover:bg-gray-700 text-white border border-gray-700'
                   }`}
                 >
-                  Get Started
+                  Free Website Audit
                 </button>
               </div>
             </article>
