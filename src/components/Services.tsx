@@ -38,7 +38,7 @@ const Services: React.FC = () => {
         "Up to 5 pages (Home, About, Services, Contact, etc.)",
         "Click-to-call + contact form setup",
         "Mobile & tablet responsive",
-        "1 week turnaround",
+        "Fast 1-week turnaround",
         "Basic SEO setup"
       ]
     },
