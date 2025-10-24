@@ -49,7 +49,7 @@ const Services: React.FC = () => {
       features: [
         "Custom design built around your brand",
         "Up to 7 pages",
-        "SEO optimization",
+        "Full SEO optimization for local visibility",
         "Business email setup",
         "Contact form integration",
         "Mobile responsive",
