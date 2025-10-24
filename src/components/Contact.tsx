@@ -136,7 +136,7 @@ const Contact: React.FC = () => {
       <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Get Your Free Website Quote Today
+            Get Your Free Website Audit Today
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
             Tell me about your business and I'll provide a custom quote within 24 hours. Serving Estero, Naples, and all of Southwest Florida.
