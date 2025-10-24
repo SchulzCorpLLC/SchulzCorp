@@ -53,7 +53,6 @@ const Services: React.FC = () => {
         "Full SEO optimization for local visibility",
         "Professional business email setup (you@yourdomain.com)",
         "Google Analytics setup for tracking visitors",
-        "Mobile & tablet responsive",
         "2-week delivery",
         "Basic on-page copywriting included"
       ],
@@ -70,7 +69,6 @@ const Services: React.FC = () => {
         "Email marketing integration (Mailchimp or similar)",
         "Business email setup",
         "Contact form integration",
-        "Mobile responsive",
         "Google Analytics & Search Console",
         "Post-launch 1-month support & updates",
         "2 week turnaround"
