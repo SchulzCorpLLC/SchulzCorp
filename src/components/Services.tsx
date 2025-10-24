@@ -65,7 +65,7 @@ const Services: React.FC = () => {
       description: "Complete digital system for businesses ready to scale and automate.",
       features: [
         "Includes everything in Business",
-        "Custom design + advanced SEO",
+        "Advanced SEO + Google Search Console setup",
         "Up to 10 pages",
         "Email marketing integration",
         "Business email setup",
