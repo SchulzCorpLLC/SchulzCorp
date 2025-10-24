@@ -34,7 +34,7 @@ const Services: React.FC = () => {
       price: "$500",
       description: "Perfect for new businesses getting started online",
       features: [
-        "Template-based design",
+        "Beautiful modern design (customized from high-converting templates)",
         "Up to 5 pages",
         "Contact form integration",
         "Mobile responsive",
