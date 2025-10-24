@@ -43,7 +43,7 @@ const Services: React.FC = () => {
       ]
     },
     {
-      name: "Business",
+      name: "Business Website",
       price: "$1,000",
       description: "Ideal for established small businesses",
       features: [
@@ -59,7 +59,7 @@ const Services: React.FC = () => {
       popular: true
     },
     {
-      name: "Premium",
+      name: "Premium Growth Site",
       price: "$1,500",
       description: "Complete solution for growing businesses",
       features: [
