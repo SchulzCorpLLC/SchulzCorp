@@ -45,7 +45,7 @@ const Services: React.FC = () => {
     {
       name: "Business Website",
       price: "$1,000",
-      description: "Ideal for established small businesses",
+      description: "Best for growing local businesses who want more leads and trust online.",
       features: [
         "Custom design",
         "Up to 7 pages",
