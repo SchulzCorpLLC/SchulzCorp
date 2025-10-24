@@ -54,7 +54,7 @@ const Services: React.FC = () => {
         "Google Analytics setup for tracking visitors",
         "Mobile responsive",
         "2-week delivery",
-        "Google Analytics setup"
+        "Basic on-page copywriting included"
       ],
       popular: true
     },
