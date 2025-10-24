@@ -32,7 +32,7 @@ const Services: React.FC = () => {
     {
       name: "Starter",
       price: "$500",
-      description: "Perfect for new businesses getting started online",
+      description: "Perfect for small businesses ready to look professional online.",
       features: [
         "Beautiful modern design (customized from high-converting templates)",
         "Up to 5 pages (Home, About, Services, Contact, etc.)",
