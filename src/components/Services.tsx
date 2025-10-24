@@ -51,7 +51,7 @@ const Services: React.FC = () => {
         "Up to 7 pages",
         "Full SEO optimization for local visibility",
         "Professional business email setup (you@yourdomain.com)",
-        "Contact form integration",
+        "Google Analytics setup for tracking visitors",
         "Mobile responsive",
         "2 week turnaround",
         "Google Analytics setup"
