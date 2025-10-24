@@ -151,7 +151,7 @@ const Hero: React.FC = () => {
                         className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-6 py-3 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-xl transform hover:-translate-y-1"
                       >
                         <span className="flex items-center justify-center">
-                          Get Your Free Quote
+                          Free Website Audit
                           <svg className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
