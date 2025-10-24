@@ -35,7 +35,7 @@ const Services: React.FC = () => {
       description: "Perfect for new businesses getting started online",
       features: [
         "Beautiful modern design (customized from high-converting templates)",
-        "Up to 5 pages",
+        "Up to 5 pages (Home, About, Services, Contact, etc.)",
         "Contact form integration",
         "Mobile responsive",
         "1 week turnaround",
