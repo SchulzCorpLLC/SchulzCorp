@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
                     className="group bg-gradient-to-r from-gray-800 to-gray-900 hover:from-gray-700 hover:to-gray-800 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-700 hover:border-gray-600 shadow-2xl hover:shadow-3xl transform hover:-translate-y-1"
                   >
                     <span className="flex items-center justify-center md:justify-start">
-                      Get Your Free Quote
+                      Free Website Audit
                       <svg
                         className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
                         fill="none"
