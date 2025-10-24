@@ -36,7 +36,7 @@ const Services: React.FC = () => {
       features: [
         "Beautiful modern design (customized from high-converting templates)",
         "Up to 5 pages (Home, About, Services, Contact, etc.)",
-        "Contact form integration",
+        "Click-to-call + contact form setup",
         "Mobile responsive",
         "1 week turnaround",
         "Basic SEO setup"
