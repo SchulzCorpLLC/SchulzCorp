@@ -50,7 +50,7 @@ const Services: React.FC = () => {
         "Custom design built around your brand",
         "Up to 7 pages",
         "Full SEO optimization for local visibility",
-        "Business email setup",
+        "Professional business email setup (you@yourdomain.com)",
         "Contact form integration",
         "Mobile responsive",
         "2 week turnaround",
