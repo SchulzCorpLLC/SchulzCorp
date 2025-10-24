@@ -30,7 +30,7 @@ const Services: React.FC = () => {
 
   const pricingPackages: PricingPackage[] = [
     {
-      name: "Starter",
+      name: "Starter Website",
       price: "$500",
       description: "Perfect for small businesses ready to look professional online.",
       features: [
