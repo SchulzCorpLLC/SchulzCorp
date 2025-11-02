@@ -4,11 +4,51 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/sc-fav.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="SchulzCorp - Professional website design for small businesses in Estero and Naples, FL. Affordable, high-converting websites built in 1-2 weeks. Local support in Southwest Florida." />
-    <meta name="keywords" content="website design Estero FL, website design Naples FL, small business websites, affordable web design, Southwest Florida web designer, Naples website designer, Estero web development, local website design" />
-    <title>SchulzCorp - Website Design in Estero & Naples, FL | Affordable Small Business Websites</title>
+
+    <!-- SEO Meta Tags -->
+    <meta
+      name="description"
+      content="SchulzCorp - Professional website design for small businesses in Estero and Naples, FL. Affordable, high-converting websites built in 1-2 weeks. Local support in Southwest Florida."
+    />
+    <meta
+      name="keywords"
+      content="website design Estero FL, website design Naples FL, small business websites, affordable web design, Southwest Florida web designer, Naples website designer, Estero web development, local website design"
+    />
+    <meta name="author" content="SchulzCorp" />
+    <meta name="robots" content="index, follow" />
+    <title>
+      SchulzCorp - Website Design in Estero & Naples, FL | Affordable Small
+      Business Websites
+    </title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XQFP0H4TPL"></script>
+    <script>
+      // Initialize dataLayer
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+
+      // Initialize GA only if user gave consent
+      function initGoogleAnalytics() {
+        try {
+          const consent = localStorage.getItem("cookie_consent");
+          if (consent === "true") {
+            gtag("js", new Date());
+            gtag("config", "G-XQFP0H4TPL", { anonymize_ip: true });
+          }
+        } catch (err) {
+          console.error("GA init error:", err);
+        }
+      }
+
+      // Run after DOM is ready
+      window.addEventListener("DOMContentLoaded", initGoogleAnalytics);
+    </script>
   </head>
-  <body>
+  <body class="bg-white text-gray-900">
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
