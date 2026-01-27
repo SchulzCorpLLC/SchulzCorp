@@ -156,7 +156,7 @@ const Contact: React.FC = () => {
                   className={`w-full px-4 py-3 bg-gray-900/50 border ${
                     errors.name ? 'border-red-500' : 'border-gray-700'
                   } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200`}
-                  placeholder="Click here"
+                  placeholder="name"
                   autoComplete="name"
                 />
                 {errors.name && (
@@ -180,7 +180,7 @@ const Contact: React.FC = () => {
                   className={`w-full px-4 py-3 bg-gray-900/50 border ${
                     errors.email ? 'border-red-500' : 'border-gray-700'
                   } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200`}
-                  placeholder="you@company.com"
+                  placeholder="email"
                   autoComplete="email"
                 />
                 {errors.email && (
