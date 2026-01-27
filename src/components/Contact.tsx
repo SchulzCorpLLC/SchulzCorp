@@ -204,7 +204,7 @@ const Contact: React.FC = () => {
                   className={`w-full px-4 py-3 bg-gray-900/50 border ${
                     errors.phone ? 'border-red-500' : 'border-gray-700'
                   } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200`}
-                  placeholder="(239) 555-1234"
+                  placeholder="(789) 555-1234"
                   autoComplete="tel"
                 />
                 {errors.phone && (
@@ -212,37 +212,6 @@ const Contact: React.FC = () => {
                     <AlertCircle className="w-3 h-3" /> {errors.phone}
                   </p>
                 )}
-              </div>
-
-              {/* Project Goals */}
-              <div>
-                <label htmlFor="projectNeeds" className="block text-sm font-medium text-gray-300 mb-2">
-                  What are your main goals? (Optional)
-                </label>
-                <textarea
-                  id="projectNeeds"
-                  name="projectNeeds"
-                  value={formData.projectNeeds}
-                  onChange={handleInputChange}
-                  rows={4}
-                  maxLength={300}
-                  className={`w-full px-4 py-3 bg-gray-900/50 border ${
-                    errors.projectNeeds ? 'border-red-500' : 'border-gray-700'
-                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200 resize-none`}
-                  placeholder="E.g., Generate leads, sell online, showcase portfolio..."
-                />
-                <div className="flex justify-between items-center mt-1">
-                  <div>
-                    {errors.projectNeeds && (
-                      <p className="text-sm text-red-400 flex items-center gap-1">
-                        <AlertCircle className="w-3 h-3" /> {errors.projectNeeds}
-                      </p>
-                    )}
-                  </div>
-                  <p className="text-xs text-gray-500">
-                    {formData.projectNeeds.length}/300
-                  </p>
-                </div>
               </div>
 
               {/* CTA Button */}
