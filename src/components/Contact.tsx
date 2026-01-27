@@ -23,20 +23,6 @@ const Contact: React.FC = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [errors, setErrors] = useState<FormErrors>({});
 
-  const businessTypes = [
-    'Service Business (Plumbing, HVAC, Lawn Care)',
-    'Moving / Transportation',
-    'Fitness / Wellness Coaching',
-    'Real Estate / Property Management',
-    'Construction / Trades',
-    'E-commerce / Retail',
-    'Professional Services (Law, Accounting)',
-    'Healthcare / Medical Practice',
-    'Restaurant / Food Service',
-    'Tech Startup / SaaS',
-    'Other'
-  ];
-
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
