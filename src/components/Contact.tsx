@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { CheckCircle2, AlertCircle, Zap } from 'lucide-react';
 
 interface FormData {
   name: string;
@@ -23,41 +24,40 @@ const Contact: React.FC = () => {
   const [errors, setErrors] = useState<FormErrors>({});
 
   const businessTypes = [
+    'Service Business (Plumbing, HVAC, Lawn Care)',
+    'Moving / Transportation',
+    'Fitness / Wellness Coaching',
+    'Real Estate / Property Management',
     'Construction / Trades',
-    'E-commerce / Online Store',
-    'Education / Coaching / Online Courses',
-    'Financial Services / Insurance',
-    'Healthcare or Wellness Practice',
-    'Logistics / Transportation / Moving Companies',
-    'Nonprofit / Community Organization',
-    'Other / Not Listed (Please Describe)',
-    'Professional Services',
-    'Real Estate or Property Management',
-    'Restaurant / Food Services',
-    'Tech / SaaS Startup'
+    'E-commerce / Retail',
+    'Professional Services (Law, Accounting)',
+    'Healthcare / Medical Practice',
+    'Restaurant / Food Service',
+    'Tech Startup / SaaS',
+    'Other'
   ];
 
   const validateForm = (): boolean => {
     const newErrors: FormErrors = {};
 
     if (!formData.name.trim()) {
-      newErrors.name = 'Name is required';
+      newErrors.name = 'Name required';
     }
 
     if (!formData.email.trim()) {
-      newErrors.email = 'Email is required';
+      newErrors.email = 'Email required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = 'Please enter a valid email address';
+      newErrors.email = 'Valid email required';
     }
 
     if (!formData.phone.trim()) {
-      newErrors.phone = 'Phone number is required';
+      newErrors.phone = 'Phone required';
     } else if (!/^[\d\s\-\(\)\+]+$/.test(formData.phone)) {
-      newErrors.phone = 'Please enter a valid phone number';
+      newErrors.phone = 'Valid phone required';
     }
 
-    if (formData.projectNeeds.length > 250) {
-      newErrors.projectNeeds = 'Project needs must be 250 characters or less';
+    if (formData.projectNeeds.length > 300) {
+      newErrors.projectNeeds = 'Keep under 300 characters';
     }
 
     setErrors(newErrors);
@@ -94,12 +94,12 @@ const Contact: React.FC = () => {
         setTimeout(() => {
           setIsSubmitted(false);
           setFormData({ name: '', email: '', phone: '', business_type: '', projectNeeds: '' });
-        }, 3000);
+        }, 4000);
       } else {
-        setErrors({ projectNeeds: "Submission failed. Please try again." });
+        setErrors({ projectNeeds: "Submission failed. Try again." });
       }
     } catch (error) {
-      setErrors({ projectNeeds: "A network error occurred. Please check your connection." });
+      setErrors({ projectNeeds: "Network error. Check connection." });
     } finally {
       setIsSubmitting(false);
     }
@@ -107,21 +107,25 @@ const Contact: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="relative overflow-hidden py-20 bg-black">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
+      <section id="contact" className="relative overflow-hidden py-32 bg-black">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
         <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mx-auto text-center">
-            <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg p-12 shadow-2xl border border-gray-700">
-              <div className="text-green-400 mb-4">
-                <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                </svg>
+            <div className="bg-gradient-to-br from-emerald-500/10 to-teal-500/10 border border-emerald-500/30 rounded-2xl p-12 shadow-2xl">
+              <div className="text-emerald-400 mb-4 flex justify-center">
+                <CheckCircle2 className="w-16 h-16" />
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">
-                Message Sent Successfully!
+              <h3 className="text-3xl font-bold text-white mb-4">
+                We Got Your Message!
               </h3>
-              <p className="text-gray-400">
-                Thank you for reaching out. I'll get back to you within 24 hours with your free quote.
+              <p className="text-gray-300 text-lg mb-2">
+                Thanks for reaching out. I'm reviewing your info right now.
+              </p>
+              <p className="text-emerald-400 font-medium">
+                You'll get a custom quote and strategy within 24 hours.
+              </p>
+              <p className="text-gray-500 text-sm mt-6">
+                Check your email for confirmation from Brandon.
               </p>
             </div>
           </div>
@@ -131,137 +135,201 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="relative overflow-hidden py-20 bg-black">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
+    <section id="contact" className="relative overflow-hidden py-24 sm:py-32 bg-black">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10"></div>
+
       <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Get Your Free Website Audit Today
-          </h2>
-          <p className="text-lg text-gray-400 max-w-3xl mx-auto">
-            Tell me about your business and I'll provide a custom quote within 24 hours. Serving Estero, Naples, and all of Southwest Florida.
-          </p>
-        </div>
+        <div className="max-w-3xl mx-auto">
+          {/* Header */}
+          <div className="text-center mb-16">
+            <span className="text-xs font-bold text-emerald-400 uppercase tracking-widest mb-4 block">
+              Ready to Win Online?
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+              Get Your Free Website Strategy
+            </h2>
+            <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+              Tell me about your business. I'll send a custom quote and strategy within 24 hours.
+            </p>
+          </div>
 
-        <div className="max-w-2xl mx-auto">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
-                Name *
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className={`w-full px-4 py-3 bg-gray-900 border ${
-                  errors.name ? 'border-red-500' : 'border-gray-700'
-                } rounded-sm text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors duration-200`}
-                placeholder="Your name"
-              />
-              {errors.name && <p className="mt-1 text-sm text-red-500">{errors.name}</p>}
-            </div>
+          {/* Form Card */}
+          <div className="bg-gradient-to-br from-gray-900/50 to-gray-900/30 rounded-2xl border border-gray-800 p-8 md:p-12 backdrop-blur-sm">
+            <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Name */}
+              <div>
+                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                  Your Name *
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 bg-gray-900/50 border ${
+                    errors.name ? 'border-red-500' : 'border-gray-700'
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200`}
+                  placeholder="Brandon"
+                  autoComplete="name"
+                />
+                {errors.name && (
+                  <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" /> {errors.name}
+                  </p>
+                )}
+              </div>
 
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
-                Email Address *
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className={`w-full px-4 py-3 bg-gray-900 border ${
-                  errors.email ? 'border-red-500' : 'border-gray-700'
-                } rounded-sm text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors duration-200`}
-                placeholder="your.email@company.com"
-              />
-              {errors.email && <p className="mt-1 text-sm text-red-500">{errors.email}</p>}
-            </div>
+              {/* Email */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 bg-gray-900/50 border ${
+                    errors.email ? 'border-red-500' : 'border-gray-700'
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200`}
+                  placeholder="you@company.com"
+                  autoComplete="email"
+                />
+                {errors.email && (
+                  <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" /> {errors.email}
+                  </p>
+                )}
+              </div>
 
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
-                Phone Number *
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className={`w-full px-4 py-3 bg-gray-900 border ${
-                  errors.phone ? 'border-red-500' : 'border-gray-700'
-                } rounded-sm text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors duration-200`}
-                placeholder="(239) 555-1234"
-              />
-              {errors.phone && <p className="mt-1 text-sm text-red-500">{errors.phone}</p>}
-            </div>
+              {/* Phone */}
+              <div>
+                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                  Phone Number *
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className={`w-full px-4 py-3 bg-gray-900/50 border ${
+                    errors.phone ? 'border-red-500' : 'border-gray-700'
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200`}
+                  placeholder="(239) 555-1234"
+                  autoComplete="tel"
+                />
+                {errors.phone && (
+                  <p className="mt-1 text-sm text-red-400 flex items-center gap-1">
+                    <AlertCircle className="w-3 h-3" /> {errors.phone}
+                  </p>
+                )}
+              </div>
 
-            <div>
-              <label htmlFor="business_type" className="block text-sm font-medium text-gray-300 mb-2">Business Type</label>
-              <select
-                id="business_type"
-                name="business_type"
-                value={formData.business_type}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 bg-gray-900 border border-gray-700 rounded-sm text-white focus:outline-none focus:border-gray-500 transition-colors duration-200"
-              >
-                <option value="">Select your business type</option>
-                {businessTypes.map(type => (
-                  <option key={type} value={type}>{type}</option>
-                ))}
-              </select>
-            </div>
+              {/* Business Type */}
+              <div>
+                <label htmlFor="business_type" className="block text-sm font-medium text-gray-300 mb-2">
+                  What type of business are you?
+                </label>
+                <select
+                  id="business_type"
+                  name="business_type"
+                  value={formData.business_type}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200"
+                >
+                  <option value="">Select your industry...</option>
+                  {businessTypes.map(type => (
+                    <option key={type} value={type}>{type}</option>
+                  ))}
+                </select>
+              </div>
 
-            <div>
-              <label htmlFor="projectNeeds" className="block text-sm font-medium text-gray-300 mb-2">
-                Project Needs
-              </label>
-              <textarea
-                id="projectNeeds"
-                name="projectNeeds"
-                value={formData.projectNeeds}
-                onChange={handleInputChange}
-                rows={4}
-                maxLength={250}
-                className={`w-full px-4 py-3 bg-gray-900 border ${
-                  errors.projectNeeds ? 'border-red-500' : 'border-gray-700'
-                } rounded-sm text-white placeholder-gray-500 focus:outline-none focus:border-gray-500 transition-colors duration-200 resize-vertical`}
-                placeholder="Tell me about your project requirements..."
-              />
-              <div className="flex justify-between items-center mt-1">
-                {errors.projectNeeds && <p className="mt-1 text-sm text-red-500">{errors.projectNeeds}</p>}
-                <p className="text-sm text-gray-500 ml-auto">
-                  {formData.projectNeeds.length}/250
+              {/* Project Goals */}
+              <div>
+                <label htmlFor="projectNeeds" className="block text-sm font-medium text-gray-300 mb-2">
+                  What are your main goals? (Optional)
+                </label>
+                <textarea
+                  id="projectNeeds"
+                  name="projectNeeds"
+                  value={formData.projectNeeds}
+                  onChange={handleInputChange}
+                  rows={4}
+                  maxLength={300}
+                  className={`w-full px-4 py-3 bg-gray-900/50 border ${
+                    errors.projectNeeds ? 'border-red-500' : 'border-gray-700'
+                  } rounded-lg text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200 resize-none`}
+                  placeholder="E.g., Generate leads, sell online, showcase portfolio..."
+                />
+                <div className="flex justify-between items-center mt-1">
+                  <div>
+                    {errors.projectNeeds && (
+                      <p className="text-sm text-red-400 flex items-center gap-1">
+                        <AlertCircle className="w-3 h-3" /> {errors.projectNeeds}
+                      </p>
+                    )}
+                  </div>
+                  <p className="text-xs text-gray-500">
+                    {formData.projectNeeds.length}/300
+                  </p>
+                </div>
+              </div>
+
+              {/* CTA Button */}
+              <div className="pt-6">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 disabled:from-gray-600 disabled:to-gray-700 text-white font-bold px-8 py-4 rounded-lg transition-all duration-300 border border-emerald-500/50 shadow-2xl hover:shadow-3xl transform hover:scale-[1.02] disabled:scale-100 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <svg className="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      <Zap className="w-4 h-4" />
+                      Get My Free Quote
+                    </>
+                  )}
+                </button>
+              </div>
+
+              {/* Trust Statement */}
+              <div className="border-t border-gray-800 pt-6 text-center">
+                <p className="text-xs text-gray-500">
+                  No spam. No sales pressure. Your info is 100% secure.
                 </p>
               </div>
-            </div>
+            </form>
+          </div>
 
-            <div className="text-center">
-              <button
-                type="submit"
-                disabled={isSubmitting}
-                className="w-full bg-white text-black font-bold px-8 py-4 rounded-sm transition-all duration-300 border border-transparent hover:bg-gray-200 disabled:bg-gray-500 disabled:cursor-not-allowed shadow-2xl hover:shadow-3xl transform hover:-translate-y-1 disabled:translate-y-0"
+          {/* Alternative Contact */}
+          <div className="mt-12 pt-12 border-t border-gray-800 text-center">
+            <p className="text-gray-400 text-sm mb-4">Prefer to talk now?</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="mailto:brandon@schulzcorp.com" 
+                className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors text-sm"
               >
-                {isSubmitting ? (
-                  <span className="flex items-center justify-center">
-                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Sending...
-                  </span>
-                ) : (
-                  'Get My Free Quote'
-                )}
-              </button>
-              <p className="text-xs text-gray-500 mt-4">
-                No spam. Your information is 100% confidential and secured.
-              </p>
+                brandon@schulzcorp.com
+              </a>
+              <span className="hidden sm:block text-gray-600">•</span>
+              <a 
+                href="tel:+12395551234" 
+                className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors text-sm"
+              >
+                (239) 555-1234
+              </a>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </section>
