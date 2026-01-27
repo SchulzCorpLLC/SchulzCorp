@@ -259,10 +259,10 @@ const Contact: React.FC = () => {
               </a>
               <span className="hidden sm:block text-gray-600">•</span>
               <a 
-                href="tel:+12395551234" 
+                href="tel:+14076130582" 
                 className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors text-sm"
               >
-                (407) 613-0582
+                Text Me
               </a>
             </div>
           </div>
