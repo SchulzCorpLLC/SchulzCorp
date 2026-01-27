@@ -262,7 +262,7 @@ const Contact: React.FC = () => {
                 href="tel:+14076130582" 
                 className="text-emerald-400 hover:text-emerald-300 font-medium transition-colors text-sm"
               >
-                Text Me
+                Text or Call
               </a>
             </div>
           </div>
