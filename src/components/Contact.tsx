@@ -228,25 +228,6 @@ const Contact: React.FC = () => {
                 )}
               </div>
 
-              {/* Business Type */}
-              <div>
-                <label htmlFor="business_type" className="block text-sm font-medium text-gray-300 mb-2">
-                  What type of business are you?
-                </label>
-                <select
-                  id="business_type"
-                  name="business_type"
-                  value={formData.business_type}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 bg-gray-900/50 border border-gray-700 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-emerald-500/50 focus:border-emerald-500 transition-all duration-200"
-                >
-                  <option value="">Select your industry...</option>
-                  {businessTypes.map(type => (
-                    <option key={type} value={type}>{type}</option>
-                  ))}
-                </select>
-              </div>
-
               {/* Project Goals */}
               <div>
                 <label htmlFor="projectNeeds" className="block text-sm font-medium text-gray-300 mb-2">
