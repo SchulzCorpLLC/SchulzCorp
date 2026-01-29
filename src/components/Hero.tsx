@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
                   className="text-lg md:text-xl text-gray-300 mb-6 leading-relaxed"
                   style={{ textShadow: '0 0 8px rgba(255, 255, 255, 0.3)' }}
                 >
-                  Professional Websites Built in 1–2 weeks. Affordable, Optimized for Results, and Backed Locally.
+                  High-performance, SEO-optimized websites built to rank, convert, and scale.
                 </p>
 
                 {/* CTA Buttons */}
