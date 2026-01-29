@@ -87,12 +87,6 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onClose }) => {
                 We use cookies and similar tracking technologies to enhance your experience on our website.
                 You can control cookie preferences at any time.
               </p>
-              <button
-                onClick={() => setShowCookieSettings(true)}
-                className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg font-medium transition-colors duration-200"
-              >
-                Manage Cookie Settings
-              </button>
               <div className="mt-4 space-y-3">
                 <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-4">
                   <h4 className="text-white font-medium mb-2">Necessary Cookies</h4>
