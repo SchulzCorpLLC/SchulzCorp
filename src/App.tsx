@@ -43,6 +43,7 @@ function App() {
     <div className="min-h-screen bg-black">
       <Navbar />
       <Hero />
+      <TrustSignals />
       <Services />
       <Portfolio />
       <About />
