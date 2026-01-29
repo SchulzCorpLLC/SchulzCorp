@@ -46,10 +46,10 @@ const Hero: React.FC = () => {
                   className="text-4xl md:text-5xl font-bold text-white mb-6 leading-tight"
                   style={{ textShadow: '0 0 15px rgba(255, 255, 255, 0.5)' }}
                 >
-                  High-Converting Websites
+                  Websites That Turn
                   <br />
                   <span className="bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-                    for Southwest Florida
+                    Visitors Into Customers
                   </span>
                 </h1>
 
