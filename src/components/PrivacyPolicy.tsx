@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Shield, Cookie, Eye, Lock, Mail, Calendar } from 'lucide-react';
+import { X, Shield, Eye, Lock, Mail, Calendar } from 'lucide-react';
 
 interface PrivacyPolicyProps {
   onClose: () => void;
