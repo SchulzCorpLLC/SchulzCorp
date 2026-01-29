@@ -6,7 +6,6 @@ interface PrivacyPolicyProps {
 }
 
 const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onClose }) => {
-  const [showCookieSettings, setShowCookieSettings] = useState(false);
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-black/80 backdrop-blur-sm">
