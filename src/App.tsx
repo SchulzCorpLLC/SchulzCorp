@@ -13,7 +13,6 @@ function App() {
 
   useEffect(() => {
     document.documentElement.style.scrollBehavior = 'smooth';
-    initScriptBlocker();
 
     const handleShowPrivacy = () => setShowPrivacyPolicy(true);
     window.addEventListener('showPrivacyPolicy', handleShowPrivacy);
