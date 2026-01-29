@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { X, Shield, Cookie, Eye, Lock, Mail, Calendar } from 'lucide-react';
-import CookieBanner from './CookieBanner';
 
 interface PrivacyPolicyProps {
   onClose: () => void;
@@ -225,13 +224,6 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ onClose }) => {
           </div>
         </div>
       </div>
-
-      {showCookieSettings && (
-        <CookieBanner
-          forceShow={true}
-          onClose={() => setShowCookieSettings(false)}
-        />
-      )}
     </div>
   );
 };
