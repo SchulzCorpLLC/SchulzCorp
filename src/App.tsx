@@ -49,7 +49,6 @@ function App() {
       <About />
       <Contact />
       <Footer onShowPrivacyPolicy={() => setShowPrivacyPolicy(true)} />
-      <CookieBanner />
       {showPrivacyPolicy && (
         <PrivacyPolicy onClose={() => {
           setShowPrivacyPolicy(false);
