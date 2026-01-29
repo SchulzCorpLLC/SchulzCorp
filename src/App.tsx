@@ -7,7 +7,6 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import PrivacyPolicy from './components/PrivacyPolicy';
-import { initScriptBlocker } from './utils/scriptBlocker';
 
 function App() {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
