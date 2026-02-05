@@ -115,12 +115,12 @@ const App = () => {
           <div className="flex flex-wrap justify-center gap-3">
             {[
               'Moving Companies',
-              'Fitness Coaches',
+              'Remodeling',
               'Service Businesses',
-              'Real Estate Agents',
-              'E-commerce',
-              'Startups',
-              'Firearms Dealers'
+              'Plumbers',
+              'Roofers',
+              'HVAC',
+              'Painters'
             ].map((industry, i) => (
               <div
                 key={i}
