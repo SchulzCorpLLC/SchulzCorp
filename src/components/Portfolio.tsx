@@ -73,11 +73,7 @@ const Portfolio: React.FC = () => {
           Each website is built from scratch using modern frameworks, responsive design, and SEO best practices to deliver real business results.
         </p>
 
-        {/* Symmetry Logic: 
-            - max-w-5xl and mx-auto ensures the grid doesn't stretch to the edges.
-            - md:grid-cols-2 handles the 2-column layout for symmetry.
-            - gap-8 lg:gap-12 provides professional spacing.
-        */}
+        {/* Symmetry Logic for 2 items */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <div
@@ -141,4 +137,6 @@ const Portfolio: React.FC = () => {
   );
 };
 
+// Renamed for compatibility with the preview environment
+const App = Portfolio;
 export default App;
