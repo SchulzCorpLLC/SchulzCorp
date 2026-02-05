@@ -20,20 +20,11 @@ const testimonials = [
 
 const App = () => {
   return (
-    <section className="relative bg-black py-16 sm:py-24 overflow-hidden min-h-screen">
-      {/* Decorative Grid Background using inline SVG to avoid external file issues */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
-              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#10b981" strokeWidth="0.5" />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
-      </div>
+    <section className="relative w-full overflow-hidden bg-black py-16 sm:py-24 px-4 flex flex-col items-center justify-center">
+      {/* Exact background grid pattern from Hero.tsx */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40"></div>
 
-      <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Top Trust Metrics */}
         <div className="grid md:grid-cols-3 gap-12 items-center mb-20">
           
@@ -85,7 +76,7 @@ const App = () => {
             {testimonials.map((testimonial, idx) => (
               <div 
                 key={idx}
-                className="relative p-8 rounded-2xl bg-gray-900/40 border border-gray-800 hover:border-emerald-500/30 transition-all duration-500 flex flex-col justify-between group"
+                className="relative p-8 rounded-2xl bg-gray-900/40 border border-gray-800 hover:border-emerald-500/30 transition-all duration-500 flex flex-col justify-between group backdrop-blur-sm"
               >
                 <Quote className="absolute top-6 right-8 w-12 h-12 text-emerald-500/5 group-hover:text-emerald-500/10 transition-colors" />
                 
@@ -133,7 +124,7 @@ const App = () => {
             ].map((industry, i) => (
               <div
                 key={i}
-                className="px-5 py-2.5 rounded-full bg-gray-900/30 border border-gray-800 text-gray-400 text-sm hover:border-emerald-500/50 hover:text-emerald-400 transition-all duration-300 cursor-default"
+                className="px-5 py-2.5 rounded-full bg-gray-900/30 border border-gray-800 text-gray-400 text-sm hover:border-emerald-500/50 hover:text-emerald-400 transition-all duration-300 cursor-default backdrop-blur-sm"
               >
                 {industry}
               </div>
