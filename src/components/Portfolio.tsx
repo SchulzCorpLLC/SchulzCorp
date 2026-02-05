@@ -37,24 +37,6 @@ const Portfolio: React.FC = () => {
       ]
     },
     {
-      title: "Estero Performance",
-      description: "Hybrid fitness coaching in Estero, FL with science backed training, nutrition, and corrective exercise for seamless online and in-person programs.",
-      testimonial: "Precise programming, real accountability, and measurable results. Brandon makes the process simple and powerful.",
-      author: "Brandon Schulz, Founder — Estero Performance",
-      link: "https://esteroperformance.com",
-      image: "/ep-hero.webp",
-      alt: "Hybrid Performance Coaching — Estero Performance Founder Coaching a Client",
-      techStack: [
-        { name: 'React' },
-        { name: 'Typescript' },
-        { name: 'Vite' },
-        { name: 'Tailwind CSS' },
-        { name: 'Supabase' },
-        { name: 'Stripe' },
-        { name: 'OAuth' },
-      ]
-    },
-    {
       title: "American Eagle Firearms",
       description: "Professional firearms dealer website featuring inventory showcase, compliance information, and streamlined customer inquiry system.",
       testimonial: "Professional, clean, and exactly what we needed to showcase our inventory and services to customers in the area.",
