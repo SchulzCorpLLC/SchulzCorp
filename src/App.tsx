@@ -44,7 +44,6 @@ function App() {
       <Navbar />
       <Hero />
       <TrustSignals />
-      <Services />
       <Portfolio />
       <About />
       <Contact />
