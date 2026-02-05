@@ -18,12 +18,19 @@ const testimonials = [
   }
 ];
 
-const TrustSignals: React.FC = () => {
+const App = () => {
   return (
-    <section className="relative bg-black py-16 sm:py-24 overflow-hidden">
-      {/* Decorative Grid Overlay */}
-      <div className="absolute inset-0 opacity-10 pointer-events-none" 
-           style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cpath d='M0 40 L40 40 L40 0' fill='none' stroke='%2334d399' stroke-width='0.5'/%3E%3C/svg%3E")` }}>
+    <section className="relative bg-black py-16 sm:py-24 overflow-hidden min-h-screen">
+      {/* Decorative Grid Background using inline SVG to avoid external file issues */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+              <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#10b981" strokeWidth="0.5" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#grid)" />
+        </svg>
       </div>
 
       <div className="relative max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,9 +85,9 @@ const TrustSignals: React.FC = () => {
             {testimonials.map((testimonial, idx) => (
               <div 
                 key={idx}
-                className="relative p-8 rounded-2xl bg-gray-900/40 border border-gray-800 hover:border-emerald-500/30 transition-colors duration-500 flex flex-col justify-between"
+                className="relative p-8 rounded-2xl bg-gray-900/40 border border-gray-800 hover:border-emerald-500/30 transition-all duration-500 flex flex-col justify-between group"
               >
-                <Quote className="absolute top-6 right-8 w-12 h-12 text-emerald-500/10" />
+                <Quote className="absolute top-6 right-8 w-12 h-12 text-emerald-500/5 group-hover:text-emerald-500/10 transition-colors" />
                 
                 <div>
                   <div className="flex gap-1 mb-4">
@@ -88,7 +95,7 @@ const TrustSignals: React.FC = () => {
                       <Star key={i} className="w-4 h-4 fill-emerald-400 text-emerald-400" />
                     ))}
                   </div>
-                  <p className="text-gray-300 leading-relaxed italic mb-8">
+                  <p className="text-gray-300 leading-relaxed italic mb-8 relative z-10">
                     "{testimonial.text}"
                   </p>
                 </div>
@@ -99,7 +106,7 @@ const TrustSignals: React.FC = () => {
                     <p className="text-emerald-400 text-sm">{testimonial.company}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-gray-500 text-xs uppercase tracking-tighter flex items-center gap-1">
+                    <p className="text-gray-500 text-xs uppercase tracking-wider flex items-center gap-1">
                       <MapPin className="w-3 h-3" /> {testimonial.location}
                     </p>
                   </div>
@@ -138,4 +145,4 @@ const TrustSignals: React.FC = () => {
   );
 };
 
-export default App; // Changed to export default App for component compatibility
+export default App;
