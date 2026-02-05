@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
 
                   {/* Secondary CTA */}
                   <button
-                    onClick={scrollToPortfolio}
+                    onClick={scrollToContact}
                     className="group bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-500 hover:border-gray-400 shadow-lg hover:shadow-xl"
                   >
                     <span className="flex items-center justify-center md:justify-start">
