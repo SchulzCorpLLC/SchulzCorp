@@ -56,7 +56,8 @@ const Portfolio: React.FC = () => {
 
   return (
     <section id="portfolio" className="py-24 sm:py-32 bg-black relative overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center"></div>
+      {/* Exact background grid pattern matching Hero and TrustSignals */}
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-40"></div>
 
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
@@ -72,25 +73,30 @@ const Portfolio: React.FC = () => {
           Each website is built from scratch using modern frameworks, responsive design, and SEO best practices to deliver real business results.
         </p>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
+        {/* Symmetry Logic: 
+            - max-w-5xl and mx-auto ensures the grid doesn't stretch to the edges.
+            - md:grid-cols-2 handles the 2-column layout for symmetry.
+            - gap-8 lg:gap-12 provides professional spacing.
+        */}
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-5xl mx-auto">
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-gray-900/50 backdrop-blur-md rounded-2xl border border-gray-800 overflow-hidden group transition-all duration-300 hover:border-blue-500/50 hover:shadow-2xl hover:shadow-blue-500/10"
+              className="bg-gray-900/50 backdrop-blur-md rounded-2xl border border-gray-800 overflow-hidden group transition-all duration-300 hover:border-emerald-500/50 hover:shadow-2xl hover:shadow-emerald-500/10 flex flex-col h-full"
             >
-              <div className="relative overflow-hidden">
+              <div className="relative overflow-hidden aspect-video md:aspect-[16/10]">
                 <img
                   src={project.image}
                   alt={project.alt}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent">
                   <div className="absolute top-4 right-4">
                     <a
                       href={project.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-black/40 backdrop-blur-sm text-white p-3 rounded-full hover:bg-blue-500/80 transition-colors duration-200 flex items-center gap-2"
+                      className="bg-black/40 backdrop-blur-sm text-white p-3 rounded-full hover:bg-emerald-500 transition-colors duration-200 flex items-center gap-2"
                       aria-label={`Visit ${project.title} website`}
                     >
                       <ExternalLink className="w-5 h-5" />
@@ -99,28 +105,33 @@ const Portfolio: React.FC = () => {
                 </div>
               </div>
 
-              <div className="p-6 md:p-8 text-center flex flex-col items-center">
-                <h3 className="text-2xl font-bold text-white mb-3">
+              <div className="p-6 md:p-8 text-center flex flex-col items-center flex-grow">
+                <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
                   {project.title}
                 </h3>
-                <p className="text-gray-400 mb-6 leading-relaxed max-w-md">
+                <p className="text-gray-400 mb-6 text-sm leading-relaxed max-w-sm">
                   {project.description}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-6 justify-center">
-                    {project.techStack.map(tech => (
-                        <span key={tech.name} className="bg-gray-800/80 text-blue-300 text-xs font-medium px-3 py-1 rounded-full border border-gray-700">
-                            {tech.name}
-                        </span>
-                    ))}
+                <div className="flex flex-wrap gap-2 mb-8 justify-center">
+                  {project.techStack.map(tech => (
+                    <span 
+                      key={tech.name} 
+                      className="bg-gray-800/80 text-emerald-400 text-[10px] uppercase tracking-wider font-bold px-3 py-1 rounded-full border border-gray-700 group-hover:border-emerald-500/30 transition-colors"
+                    >
+                      {tech.name}
+                    </span>
+                  ))}
                 </div>
 
-                <blockquote className="border-t-2 border-blue-500/30 pt-4 italic text-gray-300 my-5 max-w-md">
-                  "{project.testimonial}"
-                </blockquote>
-                <cite className="text-sm text-gray-500 not-italic">
-                  — {project.author}
-                </cite>
+                <div className="mt-auto w-full">
+                  <blockquote className="border-t border-emerald-500/20 pt-6 italic text-gray-300 mb-4 text-sm leading-relaxed">
+                    "{project.testimonial}"
+                  </blockquote>
+                  <cite className="text-xs text-gray-500 not-italic font-medium uppercase tracking-widest">
+                    — {project.author}
+                  </cite>
+                </div>
               </div>
             </div>
           ))}
@@ -130,4 +141,4 @@ const Portfolio: React.FC = () => {
   );
 };
 
-export default Portfolio;
+export default App;
