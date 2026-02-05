@@ -85,7 +85,7 @@ const Hero: React.FC = () => {
                     className="group bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-500 hover:border-gray-400 shadow-lg hover:shadow-xl"
                   >
                     <span className="flex items-center justify-center md:justify-start">
-                      View Recent Projects
+                      Book A Call
                       <svg
                         className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200"
                         fill="none"
@@ -162,7 +162,7 @@ const Hero: React.FC = () => {
                         className="group bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-sm transition-all duration-300 border border-gray-500 hover:border-gray-400 shadow-lg hover:shadow-xl"
                       >
                         <span className="flex items-center justify-center">
-                          View Recent Projects
+                          Book A Call
                           <svg className="ml-2 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                           </svg>
