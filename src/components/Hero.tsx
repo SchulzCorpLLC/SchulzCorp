@@ -8,7 +8,7 @@ const Hero: React.FC = () => {
     }
   };
 
-  const scrollToContact = () => {
+  const scrollToPortfolio = () => {
     const element = document.getElementById('portfolio');
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -81,7 +81,7 @@ const Hero: React.FC = () => {
 
                   {/* Secondary CTA */}
                   <button
-                    onClick={scrollToContact}
+                    onClick={scrollToPortfolio}
                     className="group bg-transparent hover:bg-white/10 text-white px-8 py-4 rounded-sm transition-all duration-300 border border-gray-500 hover:border-gray-400 shadow-lg hover:shadow-xl"
                   >
                     <span className="flex items-center justify-center md:justify-start">
@@ -158,7 +158,7 @@ const Hero: React.FC = () => {
 
                       {/* Secondary CTA */}
                       <button
-                        onClick={scrollToContact}
+                        onClick={scrollToPortfolio}
                         className="group bg-transparent hover:bg-white/10 text-white px-6 py-3 rounded-sm transition-all duration-300 border border-gray-500 hover:border-gray-400 shadow-lg hover:shadow-xl"
                       >
                         <span className="flex items-center justify-center">
