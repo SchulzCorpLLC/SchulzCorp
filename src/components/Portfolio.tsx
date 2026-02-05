@@ -61,7 +61,7 @@ const Portfolio: React.FC = () => {
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-gray-200 to-gray-400 mb-4">
-            Recent Website Projects
+            Recent Projects
           </h2>
           <p className="text-lg text-gray-400 max-w-3xl mx-auto">
             A showcase of high-performance websites I've developed for businesses in Southwest Florida and beyond.
