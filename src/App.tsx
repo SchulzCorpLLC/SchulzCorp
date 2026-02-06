@@ -10,8 +10,14 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import PrivacyPolicy from "./components/PrivacyPolicy";
 
-// NEW PAGE (create this file)
+// Existing page import
 import Onboarding from "./pages/Onboarding";
+
+// New page imports
+import Services from "./pages/Services";
+import PortfolioPage from "./pages/Portfolio";
+import AboutPage from "./pages/About";
+import ContactPage from "./pages/Contact";
 
 function HomePage() {
   const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
@@ -70,6 +76,10 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage />} />
       <Route path="/onboarding" element={<Onboarding />} />
+      <Route path="/services" element={<Services />} />
+      <Route path="/portfolio" element={<PortfolioPage />} />
+      <Route path="/about" element={<AboutPage />} />
+      <Route path="/contact" element={<ContactPage />} />
     </Routes>
   );
 }
