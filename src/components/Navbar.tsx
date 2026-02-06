@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 
 const Navbar: React.FC = () => {
@@ -6,6 +7,7 @@ const Navbar: React.FC = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,27 +27,16 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [lastScrollY]);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-    setIsMenuOpen(false); // Close menu after clicking a link
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth',
-    });
-    setIsMenuOpen(false); // Also close mobile menu if open
+  const handleLogoClick = () => {
+    navigate('/');
+    setIsMenuOpen(false);
   };
 
   const navLinks = [
-    { id: 'services', name: 'Services' },
-    { id: 'portfolio', name: 'Portfolio' },
-    { id: 'about', name: 'About' },
-    { id: 'contact', name: 'Contact' },
+    { id: 'services', name: 'Services', path: '/services' },
+    { id: 'portfolio', name: 'Portfolio', path: '/portfolio' },
+    { id: 'about', name: 'About', path: '/about' },
+    { id: 'contact', name: 'Contact', path: '/contact' },
   ];
 
   return (
@@ -59,15 +50,13 @@ const Navbar: React.FC = () => {
             : 'bg-transparent'
         }`}
       >
-        {/* Re-introducing max-w-screen-2xl to find a middle ground between too narrow and full-width. */}
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-24">
             <div className="flex-shrink-0">
-              {/* The logo is now a button that scrolls to the top */}
               <button
-                onClick={scrollToTop}
-                className="text-2xl font-bold text-white tracking-tight"
-                aria-label="Scroll to top"
+                onClick={handleLogoClick}
+                className="text-2xl font-bold text-white tracking-tight hover:text-green-500 transition-colors duration-200"
+                aria-label="Navigate to home"
               >
                 SchulzCorp
               </button>
@@ -77,15 +66,15 @@ const Navbar: React.FC = () => {
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-12">
                 {navLinks.map(link => (
-                  <button
+                  <Link
                     key={link.id}
-                    onClick={() => scrollToSection(link.id)}
+                    to={link.path}
+                    onClick={() => setIsMenuOpen(false)}
                     className="relative group text-lg text-gray-300 hover:text-white py-2 transition-colors duration-200"
                   >
                     <span>{link.name}</span>
-                    {/* Underline element with bg-green-500 */}
                     <span className="absolute bottom-0 left-0 w-full h-0.5 bg-green-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-out origin-center"></span>
-                  </button>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -112,13 +101,14 @@ const Navbar: React.FC = () => {
       >
         <div className="flex flex-col items-center justify-center h-full space-y-10">
           {navLinks.map(link => (
-            <button
+            <Link
               key={link.id}
-              onClick={() => scrollToSection(link.id)}
+              to={link.path}
+              onClick={() => setIsMenuOpen(false)}
               className="text-gray-300 hover:text-white text-3xl font-semibold transition-colors duration-200"
             >
               {link.name}
-            </button>
+            </Link>
           ))}
         </div>
       </div>
